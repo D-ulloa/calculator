@@ -18,21 +18,22 @@ let primary = "";
 let secondary = "";
 let operator = "";
 
+//sorts the operations depending on the current states of the variables
 function operate(primary, secondary, operator) {
     let operationResult = 0;    
     switch(operator) {
-        case add:
+        case "+":
             operationResult = add(this.primary, this.secondary);
             break;
     
-        case substract:
+        case "-":
             operationResult = substract(this.primary, this.secondary);
             break;
     
-        case multiply:
+        case "X":
             operationResult = multiply(this.primary, this.secondary);
             break;
-        case divide:
+        case "/":
             operationResult = divide(this.primary, this.secondary);
             break;
         default: 
@@ -58,3 +59,17 @@ button_numbers.forEach((button) => {
     })
 })
 
+const operators = document.getElementById("operators").querySelectorAll("button");
+
+operators.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        console.log(`button hit: ${button.textContent}`);
+        operator = button.textContent;
+    })
+})
+
+const go = document.getElementById("go");
+go.addEventListener("click", (e) => {
+    console.log(go.textContent);
+    
+});
